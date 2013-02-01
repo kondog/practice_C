@@ -1,19 +1,20 @@
-#include <assert.h>
+#include "doller.h"
 
-typedef struct T_doller{
-    int amount;
-}t_doller;
-
-t_doller doller = {1};
-
-void dollerTimes( t_doller* doller, int times_num ){
-    int local_amount;
-    local_amount = doller->amount;
-    doller->amount = local_amount * times_num;
+/* 共用dollerを初期化する */
+void public_doller_init( int init_num ){
+    public_doller.amount = init_num;
 }
 
-
-void testMultiplication(){
-    dollerTimes( &doller , 2 );
-    assert( 10 == doller.amount );
+/* local dollerを初期化する */
+void local_doller_init( t_doller* doller, int init_num ){
+    doller->amount = init_num;
 }
+
+/* 共用dollerのamountを指定倍して違う構造体として返す */
+/* 共用dollerの状態は変化しない */
+t_doller dollerTimes( int times_num ){
+    t_doller rtn_doller;
+    rtn_doller.amount = public_doller.amount * times_num;
+    return rtn_doller;
+}
+
