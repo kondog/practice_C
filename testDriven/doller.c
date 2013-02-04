@@ -18,3 +18,13 @@ t_doller dollerTimes( int times_num ){
     return rtn_doller;
 }
 
+/* doller構造体が一致するか比較する */
+int dollerEquals( t_doller src_doller, void *dst_doller ) {
+    t_doller *p_dst_doller = (t_doller *)dst_doller;
+    if( src_doller.amount == p_dst_doller->amount ){
+        return RTN_OK;
+    }else{
+        return RTN_NG;
+    }
+}
+

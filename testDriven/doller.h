@@ -1,3 +1,4 @@
+#include "common_def.h"
 
 /**************/
 /*変数宣言*****/
@@ -22,3 +23,5 @@ void local_doller_init( t_doller* doller, int init_num );
 /* 共用dollerの状態は変化しない */
 t_doller dollerTimes( int times_num );
 
+/* doller構造体が一致するか比較する */
+int dollerEquals( t_doller src_doller, void *dst_doller );
