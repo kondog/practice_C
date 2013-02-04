@@ -1,14 +1,14 @@
-$B%l!<%H$,(B2:1$B$N>l9g!"(B$5+10 CHF=$10
-Money$B$N4]$a=hM}(B
-$B9=B$BN$NEy2A@-(B
-dollerTimes$B$O9=B$BN$rJV$9$Y$-(B
-$B%F%9%H$N>h;;$K%^%8%C%/%J%s%P!<(B
-$B%X%C%@$rDj5A$7$?$$(B
-$B%F%9%H$H<BAu$G%U%!%$%k$rJ,$1$?$$(B
+レートが2:1の場合、$5+10 CHF=$10
+Moneyの丸め処理
+構造体の等価性
+dollerTimesは構造体を返すべき
+テストの乗算にマジックナンバー
+ヘッダを定義したい
+テストと実装でファイルを分けたい
 ===done===============================================
 $5*2 = 10
-dollerTimes$B$r(B2$B2s8F$V$H%F%9%H$,<:GT$9$k(B(dollerTimes$B$NI{:nMQ(B)
-$B6&MQ(Bdoller$B$H%m!<%+%k(Bdoller$B$r:n$k$Y$-(B
-$B6&MQ(BdollerInit$B$,I,MW(B
-dollerInit$B$O9=B$BN$rJV$9$Y$-(B
-$B$J$s$+(Bpublic$B$H(Blocal$B$,:.:_$7$F$k$HF,$*$+$7$/$J$k(B
+dollerTimesを2回呼ぶとテストが失敗する(dollerTimesの副作用)
+共用dollerとローカルdollerを作るべき
+共用dollerInitが必要
+dollerInitは構造体を返すべき
+なんかpublicとlocalが混在してると頭おかしくなる

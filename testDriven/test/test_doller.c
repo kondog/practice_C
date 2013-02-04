@@ -2,24 +2,24 @@
 #include "doller.h"
 #include "franc.h"
 
-/* $B%F%9%H!'=i4|2=(B */
+/* テスト：初期化 */
 void testDollerInit(){
-    t_doller local_doller; /* local_dollerInit$BMQ(B */
-    /*$BJQ?t$N=i4|2=(B*/
+    t_doller local_doller; /* local_dollerInit用 */
+    /*変数の初期化*/
     public_doller_init( 5 );
     assert( 5 == public_doller.amount );
     local_doller_init( &local_doller, 5 );
     assert( 5 == local_doller.amount );
 }
 
-/* $B%F%9%H!'(BDoller$B>h;;(B */
+/* テスト：Doller乗算 */
 void testDollerMultiplication(){
     int counter = 0;
-    t_doller local_doller;      /* $B%m!<%+%k(Bdoller */
-    t_doller cmp_doller;        /* $B;n83$GHf3S$9$kMQ(B */
+    t_doller local_doller;      /* ローカルdoller */
+    t_doller cmp_doller;        /* 試験で比較する用 */
     public_doller_init( 5 );
-    /*$B>h;;(B*/
-    /* dollerTimes$B4X?t$r2?EY8F$s$G$bFbItJQ?t$,JQ2=$7$J$$(B */
+    /*乗算*/
+    /* dollerTimes関数を何度呼んでも内部変数が変化しない */
     for( counter = 0; counter < 1; counter ++){
         local_doller_init( &local_doller, 10 );
         cmp_doller = dollerTimes( 2 );
@@ -44,7 +44,7 @@ void testDollerFrancCompare(){
     assert( francEquals(  dst_franc,  &src_doller ));
 }
 
-/* $BA4$F$N%F%9%H$r8F$V(B */
+/* 全てのテストを呼ぶ */
 void testAll(){
     testDollerInit();
     testDollerMultiplication();

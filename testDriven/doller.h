@@ -1,7 +1,7 @@
 #include "common_def.h"
 
 /**************/
-/*$BJQ?t@k8@(B*****/
+/*変数宣言*****/
 /**************/
 typedef struct T_doller{
     int amount;
@@ -10,18 +10,18 @@ typedef struct T_doller{
 t_doller public_doller;
 
 /**************************/
-/*$B4X?t%W%m%H%?%$%W@k8@(B*****/
+/*関数プロトタイプ宣言*****/
 /**************************/
 
-/* $B6&MQ(Bdoller$B$r=i4|2=$9$k(B */
+/* 共用dollerを初期化する */
 void public_doller_init( int init_num );
 
-/* local doller$B$r=i4|2=$9$k(B */
+/* local dollerを初期化する */
 void local_doller_init( t_doller* doller, int init_num );
 
-/* $B6&MQ(Bdoller$B$N(Bamount$B$r;XDjG\$7$F0c$&9=B$BN$H$7$FJV$9(B */
-/* $B6&MQ(Bdoller$B$N>uBV$OJQ2=$7$J$$(B */
+/* 共用dollerのamountを指定倍して違う構造体として返す */
+/* 共用dollerの状態は変化しない */
 t_doller dollerTimes( int times_num );
 
-/* doller$B9=B$BN$,0lCW$9$k$+Hf3S$9$k(B */
+/* doller構造体が一致するか比較する */
 int dollerEquals( t_doller src_doller, void *dst_doller );

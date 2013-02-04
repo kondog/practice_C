@@ -1,24 +1,24 @@
 #include "doller.h"
 
-/* $B6&MQ(Bdoller$B$r=i4|2=$9$k(B */
+/* 共用dollerを初期化する */
 void public_doller_init( int init_num ){
     public_doller.amount = init_num;
 }
 
-/* local doller$B$r=i4|2=$9$k(B */
+/* local dollerを初期化する */
 void local_doller_init( t_doller* doller, int init_num ){
     doller->amount = init_num;
 }
 
-/* $B6&MQ(Bdoller$B$N(Bamount$B$r;XDjG\$7$F0c$&9=B$BN$H$7$FJV$9(B */
-/* $B6&MQ(Bdoller$B$N>uBV$OJQ2=$7$J$$(B */
+/* 共用dollerのamountを指定倍して違う構造体として返す */
+/* 共用dollerの状態は変化しない */
 t_doller dollerTimes( int times_num ){
     t_doller rtn_doller;
     rtn_doller.amount = public_doller.amount * times_num;
     return rtn_doller;
 }
 
-/* doller$B9=B$BN$,0lCW$9$k$+Hf3S$9$k(B */
+/* doller構造体が一致するか比較する */
 int dollerEquals( t_doller src_doller, void *dst_doller ) {
     t_doller *p_dst_doller = (t_doller *)dst_doller;
     if( src_doller.amount == p_dst_doller->amount ){

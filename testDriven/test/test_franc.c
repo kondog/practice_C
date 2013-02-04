@@ -1,24 +1,24 @@
 #include <assert.h>
 #include "franc.h"
 
-/* $B%F%9%H!'=i4|2=(B */
+/* テスト：初期化 */
 void testFrancInit(){
-    t_franc local_franc; /* local_francInit$BMQ(B */
-    /*$BJQ?t$N=i4|2=(B*/
+    t_franc local_franc; /* local_francInit用 */
+    /*変数の初期化*/
     public_franc_init( 5 );
     assert( 5 == public_franc.amount );
     local_franc_init( &local_franc, 5 );
     assert( 5 == local_franc.amount );
 }
 
-/* $B%F%9%H!'(BFranc$B>h;;(B */
+/* テスト：Franc乗算 */
 void testFrancMultiplication(){
     int counter = 0;
-    t_franc local_franc;      /* $B%m!<%+%k(Bfranc */
-    t_franc cmp_franc;        /* $B;n83$GHf3S$9$kMQ(B */
+    t_franc local_franc;      /* ローカルfranc */
+    t_franc cmp_franc;        /* 試験で比較する用 */
     public_franc_init( 5 );
-    /*$B>h;;(B*/
-    /* francTimes$B4X?t$r2?EY8F$s$G$bFbItJQ?t$,JQ2=$7$J$$(B */
+    /*乗算*/
+    /* francTimes関数を何度呼んでも内部変数が変化しない */
     for( counter = 0; counter < 1; counter ++){
         local_franc_init( &local_franc, 10 );
         cmp_franc = francTimes( 2 );
